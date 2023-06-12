@@ -1,0 +1,46 @@
+.card-container {
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  height: 100vh;
+}
+
+.car-image-container {
+  position: relative;
+}
+
+.car-image-container img {
+  width: 100%;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  font-size: 2rem;
+  color: black;
+  background-color: rgba(110, 110, 110, 0.678);
+  text-align: center;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.left-arrow {
+  left: 10px;
+}
+
+.right-arrow {
+  right: 10px;
+}
+
+.car-details {
+  color: black;
+  overflow-y: scroll;
+  /* background-color: rgb(152, 152, 152); */
+}
+
+.car-details::-webkit-scrollbar {
+  width: 10px;
+}
