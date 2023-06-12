@@ -1,11 +1,23 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import "./CardBookingDetails.style.css";
 
-const CardBookingDetails = () => {
+// eslint-disable-next-line react/prop-types
+const CardBookingDetails = ({ setCarColor }) => {
+  const [activeBorder, setActiveBorder] = useState("modelS");
+  const [activeSaving, setActiveSavings] = useState(false);
+  const [savings, setSavings] = useState(false);
+  const [activeColor, setActiveColor] = useState("silver");
+
+  useEffect(() => {
+    setCarColor(activeColor);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeColor]);
+
   const modelS = [
     {
       modelName: "Model S",
       type: "Dual Motor All-Wheel Drive",
-      price: "88,490",
+      price: `${!savings ? "88,490" : "81,890"}`,
       range: "405mi",
       topSpeed: "149mph",
       speedS: "3.1sec",
@@ -13,7 +25,7 @@ const CardBookingDetails = () => {
     {
       modelName: "Model S Plaid",
       type: "Tri Motor All-Wheel Drive",
-      price: "108,490",
+      price: `${!savings ? "108,490" : "101,890"}`,
       range: "396mi",
       topSpeed: "200mph",
       speedS: "1.99sec",
@@ -22,113 +34,113 @@ const CardBookingDetails = () => {
   const [dataToShow, setdataToShow] = useState(modelS[0]);
 
   return (
-    <div style={{ textAlign: "center", marginLeft: "10px" }}>
-      <h2
-        style={{
-          textAlign: "center",
-          padding: "2rem",
-          fontSize: "3.8rem",
-          fontWeight: "500",
-        }}
-      >
-        Model S
-      </h2>
-      <p style={{ fontSize: "1.2rem" }}>Est. Delivery: Jun – Jul 2023</p>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          gap: "4rem",
-          fontSize: "1.2rem",
-          margin: "1.8rem 4rem",
-          padding: "0.6rem 0",
-          background: "#cfcfcf",
-          borderRadius: "1.2rem",
-        }}
-      >
+    <div className="card-booking-details-container">
+      <h2 className="car-header">Model S</h2>
+      <p className="delivery-date">Est. Delivery: Jun – Jul 2023</p>
+      <div className="purchase-details">
         <p
-          className="pointer-cur"
-          style={{
-            background: "white",
-            padding: "0.4rem 1.4rem",
-            borderRadius: "1rem",
+          onClick={() => {
+            setSavings(false);
+            setActiveSavings(!activeSaving);
           }}
+          className={`pointer-cur individual-purhcase ${
+            !activeSaving ? "active-purchase" : ""
+          }`}
         >
           Purchase Price
         </p>
         <p
-          className="pointer-cur"
-          style={{
-            padding: "0.4rem 1rem",
+          onClick={() => {
+            setSavings(true);
+            setActiveSavings(!activeSaving);
           }}
+          className={`pointer-cur individual-purhcase ${
+            activeSaving ? "active-purchase" : ""
+          }`}
         >
           Potential Savings
         </p>
       </div>
-      <div
-        style={{
-          display: "flex",
-          fontSize: "2.6rem",
-          justifyContent: "center",
-          gap: "1.2rem",
-          marginTop: "6rem",
-        }}
-      >
+      <div className="car-range-details">
         <div>
           <span>{dataToShow.range}</span>
-          <p
-            style={{ fontSize: "1.4rem", color: "#b9b9b9", marginTop: "1rem" }}
-          >
-            Range (EPA est.)
-          </p>
+          <p className="car-range-i-details">Range (EPA est.)</p>
         </div>
         <div>
           <span>{dataToShow.topSpeed}</span>
-          <p
-            style={{ fontSize: "1.4rem", color: "#b9b9b9", marginTop: "1rem" }}
-          >
-            Top Speed
-          </p>
+          <p className="car-range-i-details">Top Speed</p>
         </div>
         <div>
           <span>{dataToShow.speedS}</span>
-          <p
-            style={{ fontSize: "1.4rem", color: "#b9b9b9", marginTop: "1rem" }}
-          >
-            0-60 mph
-          </p>
+          <p className="car-range-i-details">0-60 mph</p>
         </div>
       </div>
       <div>
-        {modelS.map((model, index) => {
-          return (
-            <div key={index} className="pointer-cur">
-              <div
-                style={{
-                  textAlign: "left",
-                  fontSize: "1.8rem",
-                  marginTop: "5rem",
-                }}
-              >
-                {model.type}
-              </div>
-              <div
-                onClick={() => setdataToShow(modelS[index])}
-                style={{
-                  display: "flex",
-                  fontSize: "1.6rem",
-                  justifyContent: "space-between",
-                  border: `solid 2px grey`,
-                  padding: "1rem 2rem",
-                  marginTop: "1rem",
-                }}
-              >
-                <p>{model.modelName}</p>
-                <p>${model.price}</p>
-              </div>
-            </div>
-          );
-        })}
+        <div className="pointer-cur">
+          <div className="model-i-details">{modelS[0].type}</div>
+          <div
+            className={`model-i-details-border ${
+              activeBorder === "modelS" ? "active-border" : ""
+            }`}
+            onClick={() => {
+              setActiveBorder("modelS");
+              setdataToShow(modelS[0]);
+            }}
+          >
+            <p>{modelS[0].modelName}</p>
+            <p>${modelS[0].price}</p>
+          </div>
+        </div>
+
+        <div className="pointer-cur">
+          <div className="model-i-details">{modelS[1].type}</div>
+          <div
+            className={`model-i-details-border ${
+              activeBorder === "modelSPlaid" ? "active-border" : ""
+            }`}
+            onClick={() => {
+              setActiveBorder("modelSPlaid");
+              setdataToShow(modelS[1]);
+            }}
+          >
+            <p>{modelS[1].modelName}</p>
+            <p>${modelS[1].price}</p>
+          </div>
+        </div>
+      </div>
+      <div className="car-paint-container">
+        <p>Paint</p>
+        <div className="paint-order-container">
+          <img
+            src="src/assets/backgroundImage/color/white.png"
+            onClick={() => {
+              setActiveColor("silver");
+            }}
+            className={`pointer-cur ${
+              activeColor === "silver" ? "active-color" : ""
+            }`}
+          />
+          <img
+            src="src/assets/backgroundImage/color/black.png"
+            onClick={() => {
+              setActiveColor("black");
+            }}
+            className={`pointer-cur ${
+              activeColor === "black" ? "active-color" : ""
+            }`}
+          />
+          <img
+            src="src/assets/backgroundImage/color/silver.png"
+            onClick={() => {
+              setActiveColor("grey");
+            }}
+            className={`pointer-cur ${
+              activeColor === "grey" ? "active-color" : ""
+            }`}
+          />
+          <img />
+          <img />
+        </div>
       </div>
     </div>
   );

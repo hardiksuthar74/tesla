@@ -2,21 +2,23 @@ import { useEffect, useState } from "react";
 import "./Car.style.css";
 import CardBookingDetails from "../../components/CardBookingDetails/CardBookingDetails.component";
 
-const CarImage = [
-  "src/assets/backgroundImage/modelS/modelS1.jpg",
-  "src/assets/backgroundImage/modelS/modelS2.jpg",
-  "src/assets/backgroundImage/modelS/modelS3.jpg",
-  "src/assets/backgroundImage/modelS/modelS4.jpg",
-  "src/assets/backgroundImage/modelS/modelS5.jpg",
-];
-
 const Car = () => {
+  const [carColor, setCarColor] = useState("silver");
+
+  const CarImage = [
+    `src/assets/backgroundImage/modelS/modelS1-${carColor}.jpg`,
+    `src/assets/backgroundImage/modelS/modelS2-${carColor}.jpg`,
+    `src/assets/backgroundImage/modelS/modelS3-${carColor}.jpg`,
+    `src/assets/backgroundImage/modelS/modelS4-${carColor}.jpg`,
+    `src/assets/backgroundImage/modelS/modelS5.jpg`,
+  ];
+
   const [i, setI] = useState(0);
   const [bgImage, setBgImage] = useState(CarImage[i]);
 
   useEffect(() => {
     setBgImage(CarImage[i]);
-  }, [i]);
+  }, [i, carColor]);
 
   const changePicture = (position) => {
     if ((position === "right") & (i !== 4)) {
@@ -41,9 +43,10 @@ const Car = () => {
             &#8594;
           </i>
         </div>
+        <div className="car-bill-total">{"$88,999 Vehicle Price"}</div>
       </div>
       <div className="car-details">
-        <CardBookingDetails />
+        <CardBookingDetails setCarColor={setCarColor} />
       </div>
     </div>
   );

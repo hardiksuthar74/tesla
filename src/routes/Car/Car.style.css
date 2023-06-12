@@ -44,3 +44,14 @@
 .car-details::-webkit-scrollbar {
   width: 10px;
 }
+
+.car-bill-total {
+  font-size: 1.6rem;
+  background-color: #f4f4f4;
+  display: flex;
+  margin: 0 auto;
+  height: 4rem;
+  width: 40rem;
+  justify-content: center;
+  align-items: center;
+}

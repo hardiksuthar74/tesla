@@ -1,0 +1,92 @@
+.card-booking-details-container {
+  text-align: center;
+  margin-left: 1rem;
+}
+.car-header {
+  text-align: center;
+  padding: 2rem;
+  font-size: 3.8rem;
+  font-weight: 500;
+}
+
+.delivery-date {
+  font-size: 1.2rem;
+}
+
+.purchase-details {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  font-size: 1.3rem;
+  margin: 1.8rem 4rem;
+  padding: 0.6rem 0;
+  background-color: #cfcfcf;
+  border-radius: 1.2rem;
+}
+
+.active-purchase {
+  background-color: white;
+  border-radius: 1rem;
+}
+
+.individual-purhcase {
+  padding: 0.4rem 1.4rem;
+}
+
+.car-range-details {
+  display: flex;
+  font-size: 2.6rem;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-top: 6rem;
+}
+
+.car-range-i-details {
+  font-size: 1.4rem;
+  color: #b9b9b9;
+  margin-top: 1rem;
+}
+
+.model-i-details {
+  text-align: left;
+  font-size: 1.8rem;
+  margin-top: 5rem;
+}
+
+.model-i-details-border {
+  display: flex;
+  font-size: 1.6rem;
+  justify-content: space-between;
+  border: solid 3px grey;
+  border-radius: 4px;
+  padding: 1rem 2rem;
+  margin-top: 1rem;
+}
+
+.active-border {
+  border: solid 3px #3e6ae1;
+}
+
+.car-paint-container {
+  margin-top: 8rem;
+  font-size: 2.8rem;
+}
+
+.paint-order-container {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: 4rem 4rem 4rem;
+  justify-content: center;
+  align-items: center;
+  column-gap: 2rem;
+}
+
+.paint-order-container img {
+  width: 100%;
+  padding: 2px;
+}
+
+.active-color {
+  border: 3px solid #3e6ae1;
+  border-radius: 100%;
+}
