@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./CardBookingDetails.style.css";
 
 // eslint-disable-next-line react/prop-types
-const CardBookingDetails = ({ setCarColor }) => {
+const CardBookingDetails = ({ setCarColor, setTotal, total }) => {
   const [activeBorder, setActiveBorder] = useState("modelS");
   const [activeSaving, setActiveSavings] = useState(false);
   const [savings, setSavings] = useState(false);
@@ -83,6 +83,7 @@ const CardBookingDetails = ({ setCarColor }) => {
               activeBorder === "modelS" ? "active-border" : ""
             }`}
             onClick={() => {
+              setTotal(88490);
               setActiveBorder("modelS");
               setdataToShow(modelS[0]);
             }}
@@ -99,6 +100,7 @@ const CardBookingDetails = ({ setCarColor }) => {
               activeBorder === "modelSPlaid" ? "active-border" : ""
             }`}
             onClick={() => {
+              setTotal(108490);
               setActiveBorder("modelSPlaid");
               setdataToShow(modelS[1]);
             }}
@@ -111,35 +113,46 @@ const CardBookingDetails = ({ setCarColor }) => {
       <div className="car-paint-container">
         <p>Paint</p>
         <div className="paint-order-container">
-          <img
-            src="src/assets/backgroundImage/color/white.png"
-            onClick={() => {
-              setActiveColor("silver");
-            }}
-            className={`pointer-cur ${
-              activeColor === "silver" ? "active-color" : ""
-            }`}
-          />
-          <img
-            src="src/assets/backgroundImage/color/black.png"
-            onClick={() => {
-              setActiveColor("black");
-            }}
-            className={`pointer-cur ${
-              activeColor === "black" ? "active-color" : ""
-            }`}
-          />
-          <img
-            src="src/assets/backgroundImage/color/silver.png"
-            onClick={() => {
-              setActiveColor("grey");
-            }}
-            className={`pointer-cur ${
-              activeColor === "grey" ? "active-color" : ""
-            }`}
-          />
-          <img />
-          <img />
+          <div>
+            <img
+              src="src/assets/backgroundImage/color/white.png"
+              onClick={() => {
+                setTotal(activeBorder === "modelS" ? 88490 : 108490);
+
+                setActiveColor("silver");
+              }}
+              className={`pointer-cur ${
+                activeColor === "silver" ? "active-color" : ""
+              }`}
+            />
+            <p className="car-range-i-details">Silver (default)</p>
+          </div>
+          <div>
+            <img
+              src="src/assets/backgroundImage/color/black.png"
+              onClick={() => {
+                setTotal(total + 1500);
+                setActiveColor("black");
+              }}
+              className={`pointer-cur ${
+                activeColor === "black" ? "active-color" : ""
+              }`}
+            />
+            <p className="car-range-i-details">Black ($1,500)</p>
+          </div>
+          <div>
+            <img
+              src="src/assets/backgroundImage/color/silver.png"
+              onClick={() => {
+                setTotal(total + 1500);
+                setActiveColor("grey");
+              }}
+              className={`pointer-cur ${
+                activeColor === "grey" ? "active-color" : ""
+              }`}
+            />
+            <p className="car-range-i-details">Grey ($1,500)</p>
+          </div>
         </div>
       </div>
     </div>
