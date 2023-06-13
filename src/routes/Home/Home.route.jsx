@@ -6,7 +6,7 @@ import OrderButton from "../../components/OrderButton/OrderButton.component";
 const carData = [
   {
     modelName: "Model S",
-    modelBgImage: "src/assets/backgroundImage/modelSBG.png",
+    modelBgImage: "/assets/backgroundImage/modelSBG.png",
   },
 ];
 

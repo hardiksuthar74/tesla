@@ -4,11 +4,11 @@ import { useState } from "react";
 // eslint-disable-next-line react/prop-types
 const CarShow = ({ carColor, total }) => {
   const CarImage = [
-    `src/assets/backgroundImage/modelS/modelS1-${carColor}.jpg`,
-    `src/assets/backgroundImage/modelS/modelS2-${carColor}.jpg`,
-    `src/assets/backgroundImage/modelS/modelS3-${carColor}.jpg`,
-    `src/assets/backgroundImage/modelS/modelS4-${carColor}.jpg`,
-    `src/assets/backgroundImage/modelS/modelS5.jpg`,
+    `assets/backgroundImage/modelS/modelS1-${carColor}.jpg`,
+    `assets/backgroundImage/modelS/modelS2-${carColor}.jpg`,
+    `assets/backgroundImage/modelS/modelS3-${carColor}.jpg`,
+    `assets/backgroundImage/modelS/modelS4-${carColor}.jpg`,
+    `assets/backgroundImage/modelS/modelS5.jpg`,
   ];
 
   const [i, setI] = useState(0);

@@ -115,7 +115,7 @@ const CardBookingDetails = ({ setCarColor, setTotal, total }) => {
         <div className="paint-order-container">
           <div>
             <img
-              src="src/assets/backgroundImage/color/white.png"
+              src="/assets/backgroundImage/color/white.png"
               onClick={() => {
                 setTotal(activeBorder === "modelS" ? 88490 : 108490);
 
@@ -129,7 +129,7 @@ const CardBookingDetails = ({ setCarColor, setTotal, total }) => {
           </div>
           <div>
             <img
-              src="src/assets/backgroundImage/color/black.png"
+              src="/assets/backgroundImage/color/black.png"
               onClick={() => {
                 setTotal(total + 1500);
                 setActiveColor("black");
@@ -142,7 +142,7 @@ const CardBookingDetails = ({ setCarColor, setTotal, total }) => {
           </div>
           <div>
             <img
-              src="src/assets/backgroundImage/color/silver.png"
+              src="/assets/backgroundImage/color/silver.png"
               onClick={() => {
                 setTotal(total + 1500);
                 setActiveColor("grey");
