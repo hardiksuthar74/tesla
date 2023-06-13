@@ -85,6 +85,8 @@ const CardBookingDetails = ({ setCarColor, setTotal, total }) => {
             onClick={() => {
               setTotal(88490);
               setActiveBorder("modelS");
+              setCarColor("silver");
+              setActiveColor("silver");
               setdataToShow(modelS[0]);
             }}
           >
@@ -101,6 +103,8 @@ const CardBookingDetails = ({ setCarColor, setTotal, total }) => {
             }`}
             onClick={() => {
               setTotal(108490);
+              setCarColor("silver");
+              setActiveColor("silver");
               setActiveBorder("modelSPlaid");
               setdataToShow(modelS[1]);
             }}
@@ -118,7 +122,6 @@ const CardBookingDetails = ({ setCarColor, setTotal, total }) => {
               src="/assets/backgroundImage/color/white.png"
               onClick={() => {
                 setTotal(activeBorder === "modelS" ? 88490 : 108490);
-
                 setActiveColor("silver");
               }}
               className={`pointer-cur ${
@@ -131,7 +134,9 @@ const CardBookingDetails = ({ setCarColor, setTotal, total }) => {
             <img
               src="/assets/backgroundImage/color/black.png"
               onClick={() => {
-                setTotal(total + 1500);
+                setTotal(
+                  activeBorder === "modelS" ? 88490 + 1500 : 108490 + 1500
+                );
                 setActiveColor("black");
               }}
               className={`pointer-cur ${
@@ -144,14 +149,16 @@ const CardBookingDetails = ({ setCarColor, setTotal, total }) => {
             <img
               src="/assets/backgroundImage/color/silver.png"
               onClick={() => {
-                setTotal(total + 1500);
+                setTotal(
+                  activeBorder === "modelS" ? 88490 + 1500 : 108490 + 1500
+                );
                 setActiveColor("grey");
               }}
               className={`pointer-cur ${
                 activeColor === "grey" ? "active-color" : ""
               }`}
             />
-            <p className="car-range-i-details">Grey ($3,000)</p>
+            <p className="car-range-i-details">Grey ($1,500)</p>
           </div>
         </div>
       </div>
