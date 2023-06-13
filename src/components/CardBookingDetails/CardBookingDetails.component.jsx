@@ -151,7 +151,7 @@ const CardBookingDetails = ({ setCarColor, setTotal, total }) => {
                 activeColor === "grey" ? "active-color" : ""
               }`}
             />
-            <p className="car-range-i-details">Grey ($1,500)</p>
+            <p className="car-range-i-details">Grey ($3,000)</p>
           </div>
         </div>
       </div>
